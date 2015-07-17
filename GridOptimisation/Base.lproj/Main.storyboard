@@ -1,25 +1,138 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="GridOptimisation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="LlD-DY-pm3"/>
+                        <viewControllerLayoutGuide type="bottom" id="ez9-c5-4L2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8y-wS-YPK" userLabel="Container View 1">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5e-sy-Lsj" userLabel="Container View 2">
+                                <rect key="frame" x="300" y="0.0" width="300" height="300"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="byK-Lj-UEK" userLabel="Container View 3">
+                                <rect key="frame" x="0.0" y="300" width="300" height="300"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rdd-qR-fKL" userLabel="Container View 4">
+                                <rect key="frame" x="300" y="300" width="300" height="300"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.93339234752915878" alpha="1" colorSpace="calibratedRGB"/>
+                            </containerView>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hcd-uC-71n">
+                                <rect key="frame" x="16" y="285" width="40" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="PZu-OL-9zK"/>
+                                </constraints>
+                                <state key="normal" title="1 x 4">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="grid1x4" destination="BYZ-38-t0r" eventType="touchUpInside" id="uic-E0-9XP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gs1-nb-oFw">
+                                <rect key="frame" x="280" y="285" width="40" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="3Xr-v7-Y4f"/>
+                                </constraints>
+                                <state key="normal" title="2 x 2">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="grid2x2" destination="BYZ-38-t0r" eventType="touchUpInside" id="5WW-np-RbM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiz-ZY-3dX">
+                                <rect key="frame" x="544" y="285" width="40" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="evC-qe-ETh"/>
+                                </constraints>
+                                <state key="normal" title="4 x 1">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="grid4x1" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fdr-VN-gth"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ez9-c5-4L2" firstAttribute="top" secondItem="o5e-sy-Lsj" secondAttribute="bottom" constant="300" placeholder="YES" id="3k4-KN-0Rz"/>
+                            <constraint firstItem="rdd-qR-fKL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="300" placeholder="YES" id="7x7-01-mCV"/>
+                            <constraint firstItem="eiz-ZY-3dX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="C4t-WV-wxy"/>
+                            <constraint firstItem="rdd-qR-fKL" firstAttribute="top" secondItem="LlD-DY-pm3" secondAttribute="bottom" constant="280" placeholder="YES" id="CBc-25-k8m"/>
+                            <constraint firstItem="o5e-sy-Lsj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="300" placeholder="YES" id="EaQ-CJ-H69"/>
+                            <constraint firstItem="ez9-c5-4L2" firstAttribute="top" secondItem="byK-Lj-UEK" secondAttribute="bottom" placeholder="YES" id="Hj5-PD-itG"/>
+                            <constraint firstItem="Hcd-uC-71n" firstAttribute="centerY" secondItem="gs1-nb-oFw" secondAttribute="centerY" id="MhD-yf-GeS"/>
+                            <constraint firstAttribute="trailing" secondItem="o5e-sy-Lsj" secondAttribute="trailing" placeholder="YES" id="N3a-BD-dli"/>
+                            <constraint firstItem="y8y-wS-YPK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" placeholder="YES" id="NBs-WX-BIS"/>
+                            <constraint firstItem="byK-Lj-UEK" firstAttribute="top" secondItem="LlD-DY-pm3" secondAttribute="bottom" constant="280" placeholder="YES" id="QiS-kr-gop"/>
+                            <constraint firstAttribute="trailing" secondItem="rdd-qR-fKL" secondAttribute="trailing" placeholder="YES" id="Uwt-FC-Ir7"/>
+                            <constraint firstItem="y8y-wS-YPK" firstAttribute="top" secondItem="LlD-DY-pm3" secondAttribute="bottom" constant="-20" placeholder="YES" id="W9v-fe-Wku"/>
+                            <constraint firstItem="Hcd-uC-71n" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="XMD-c4-dH3"/>
+                            <constraint firstAttribute="trailing" secondItem="y8y-wS-YPK" secondAttribute="trailing" constant="300" placeholder="YES" id="d7c-hN-WV7"/>
+                            <constraint firstItem="ez9-c5-4L2" firstAttribute="top" secondItem="y8y-wS-YPK" secondAttribute="bottom" constant="300" placeholder="YES" id="dze-Yv-k11"/>
+                            <constraint firstItem="ez9-c5-4L2" firstAttribute="top" secondItem="rdd-qR-fKL" secondAttribute="bottom" placeholder="YES" id="fNz-rn-c5u"/>
+                            <constraint firstAttribute="centerY" secondItem="gs1-nb-oFw" secondAttribute="centerY" id="iRs-dk-OhR"/>
+                            <constraint firstAttribute="centerX" secondItem="gs1-nb-oFw" secondAttribute="centerX" id="l1H-k3-wEG"/>
+                            <constraint firstItem="o5e-sy-Lsj" firstAttribute="top" secondItem="LlD-DY-pm3" secondAttribute="bottom" constant="-20" placeholder="YES" id="qYK-Ke-PQz"/>
+                            <constraint firstAttribute="trailing" secondItem="byK-Lj-UEK" secondAttribute="trailing" constant="300" placeholder="YES" id="rOa-xG-xdI"/>
+                            <constraint firstItem="gs1-nb-oFw" firstAttribute="centerY" secondItem="eiz-ZY-3dX" secondAttribute="centerY" id="uLo-At-6U5"/>
+                            <constraint firstItem="byK-Lj-UEK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" placeholder="YES" id="w5u-qT-kHy"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="containerView1" destination="y8y-wS-YPK" id="UMQ-Ao-a4E"/>
+                        <outlet property="containerView2" destination="o5e-sy-Lsj" id="0eL-dn-Wvh"/>
+                        <outlet property="containerView3" destination="byK-Lj-UEK" id="Ab8-Qw-aIa"/>
+                        <outlet property="containerView4" destination="rdd-qR-fKL" id="5Xk-xZ-4E5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="565" y="245"/>
         </scene>
     </scenes>
 </document>
