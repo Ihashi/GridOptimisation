@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var containerView1: UIView!
-    @IBOutlet weak var containerView2: UIView!
-    @IBOutlet weak var containerView3: UIView!
-    @IBOutlet weak var containerView4: UIView!
+    @IBOutlet weak var containerView1: AVPlayerView!
+    @IBOutlet weak var containerView2: AVPlayerView!
+    @IBOutlet weak var containerView3: AVPlayerView!
+    @IBOutlet weak var containerView4: AVPlayerView!
     
     private var constraints = [NSLayoutConstraint]()
     private var containerView1Height: NSLayoutConstraint!
@@ -123,6 +124,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadVideos()
         grid2x2()
     }
     
@@ -203,6 +205,41 @@ class MainViewController: UIViewController {
         }
         constraints.removeAll(keepCapacity: false)
         removeWidthAndHeight()
+    }
+    
+    private var playerItem: AVPlayerItem?
+    private var videoPlayer: AVPlayer?
+    private var videoNumber = 0
+    private var urls = ["http://fun.siz.io/stories/142893791787803c7fb48f4d/0.mp4",
+                        "http://fun.siz.io/stories/142893791787803c7fb48f4d/1.mp4",
+                        "http://fun.siz.io/stories/142893791787803c7fb48f4d/2.mp4",
+                        "http://fun.siz.io/stories/142893791787803c7fb48f4d/3.mp4"]
+    
+    private func loadVideos() {
+        for i in 0...3 {
+            var url = NSURL(string: urls[i])
+            playerItem = AVPlayerItem(URL: url)
+            videoPlayer = AVPlayer(playerItem: playerItem)
+            
+            if let player = videoPlayer
+            {
+                player.actionAtItemEnd = .None
+                
+                switch i {
+                case 0: containerView1?.setPlayer(player)
+                        containerView1?.setVideoFillMode(AVLayerVideoGravityResizeAspect)
+                case 1: containerView2?.setPlayer(player)
+                        containerView2?.setVideoFillMode(AVLayerVideoGravityResizeAspect)
+                case 2: containerView3?.setPlayer(player)
+                        containerView3?.setVideoFillMode(AVLayerVideoGravityResizeAspect)
+                case 3: containerView4?.setPlayer(player)
+                        containerView4?.setVideoFillMode(AVLayerVideoGravityResizeAspect)
+                default: break
+                }
+                
+                player.play()
+            }
+        }
     }
 }
 
