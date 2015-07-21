@@ -201,6 +201,7 @@ class MainViewController: UIViewController {
         for i in 0...(constraint.count-1) {
             view.removeConstraint(constraint[i])
         }
+        constraints.removeAll(keepCapacity: false)
         removeWidthAndHeight()
     }
 }
