@@ -17,8 +17,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var containerView4: AVPlayerView!
     
     private var constraints = [NSLayoutConstraint]()
-    private var containerView1Height: NSLayoutConstraint!
-    private var containerView1Width: NSLayoutConstraint!
     private var containerView2Height: NSLayoutConstraint!
     private var containerView2Width: NSLayoutConstraint!
     private var containerView3Height: NSLayoutConstraint!
@@ -26,93 +24,74 @@ class MainViewController: UIViewController {
     private var containerView4Height: NSLayoutConstraint!
     private var containerView4Width: NSLayoutConstraint!
     
-    private var currentGrid: String!
-    
     @IBAction func grid1x4() {
-        currentGrid = "Grid 1x4"
         if constraints.count != 0 {
             removeAllConstraints(constraints)
         }
         
+        appendSharedConstraints()
+        
         // Container View 1 constraints
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: containerView2, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: containerView1, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: containerView1, attribute: .Bottom, relatedBy: .Equal, toItem: containerView2, attribute: .Top, multiplier: 1, constant: 0))
         
-        // Container View 2 constraints
-        constraints.append(NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: containerView3, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
+        // Container View 2 constraint
+        constraints.append(NSLayoutConstraint(item: containerView2, attribute: .Bottom, relatedBy: .Equal, toItem: containerView3, attribute: .Top, multiplier: 1, constant: 0))
         
-        // Container View 3 constraints
-        constraints.append(NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: containerView4, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
+        // Container View 3 constraint
+        constraints.append(NSLayoutConstraint(item: containerView3, attribute: .Bottom, relatedBy: .Equal, toItem: containerView4, attribute: .Top, multiplier: 1, constant: 0))
         
-        // Container View 4 constraints
-        constraints.append(NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
+        // Container View 4 constraint
+        constraints.append(NSLayoutConstraint(item: containerView4, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
         
         addAllConstraints(constraints)
     }
 
     @IBAction func grid2x2() {
-        currentGrid = "Grid 2x2"
         if constraints.count != 0 {
             removeAllConstraints(constraints)
         }
         
+        appendSharedConstraints()
+        
         // Container View 1 constraints
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: containerView2, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: containerView3, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: containerView1, attribute: .Right, relatedBy: .Equal, toItem: containerView2, attribute: .Left, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: containerView1, attribute: .Bottom, relatedBy: .Equal, toItem: containerView3, attribute: .Top, multiplier: 1, constant: 0))
         
         // Container View 2 constraints
-        constraints.append(NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: containerView4, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: containerView2, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: containerView2, attribute: .Bottom, relatedBy: .Equal, toItem: containerView4, attribute: .Top, multiplier: 1, constant: 0))
         
         // Container View 3 constraints
-        constraints.append(NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: containerView4, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: containerView3, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: containerView3, attribute: .Right, relatedBy: .Equal, toItem: containerView4, attribute: .Left, multiplier: 1, constant: 0))
         
         // Container View 4 constraints
-        constraints.append(NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: containerView4, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: containerView4, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
         
         addAllConstraints(constraints)
     }
     
     @IBAction func grid4x1() {
-        currentGrid = "Grid 4x1"
         if constraints.count != 0 {
             removeAllConstraints(constraints)
         }
         
+        appendSharedConstraints()
+        
         // Container View 1 constraints
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: containerView2, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
+        constraints.append(NSLayoutConstraint(item: containerView1, attribute: .Right, relatedBy: .Equal, toItem: containerView2, attribute: .Left, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: containerView1, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Bottom, multiplier: 1, constant: 0))
         
-        // Container View 2 constraints
-        constraints.append(NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: containerView3, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
+        // Container View 2 constraint
+        constraints.append(NSLayoutConstraint(item: containerView2, attribute: .Right, relatedBy: .Equal, toItem: containerView3, attribute: .Left, multiplier: 1, constant: 0))
         
-        // Container View 3 constraints
-        constraints.append(NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: containerView4, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
+        // Container View 3 constraint
+        constraints.append(NSLayoutConstraint(item: containerView3, attribute: .Right, relatedBy: .Equal, toItem: containerView4, attribute: .Left, multiplier: 1, constant: 0))
         
-        // Container View 4 constraints
-        constraints.append(NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0))
-        constraints.append(NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0.0))
+        // Container View 4 constraint
+        constraints.append(NSLayoutConstraint(item: containerView4, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1, constant: 0))
         
         addAllConstraints(constraints)
     }
@@ -133,41 +112,18 @@ class MainViewController: UIViewController {
     }
     
     private func addWidthAndHeight() {
-        var videoGridHeight: CGFloat!
-        var videoGridWidth: CGFloat!
-        
-        switch(currentGrid) {
-        case "Grid 2x2":
-            videoGridHeight = view.bounds.height/2
-            videoGridWidth = view.bounds.width/2
-        case "Grid 4x1":
-            videoGridHeight = view.bounds.height
-            videoGridWidth = view.bounds.width/4
-        case "Grid 1x4":
-            videoGridHeight = view.bounds.height/4
-            videoGridWidth = view.bounds.width
-        default:
-            break
-        }
-        
-        // Container View 1 Height and Width
-        containerView1Height = NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: videoGridHeight)
-        containerView1Width = NSLayoutConstraint(item: containerView1, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: videoGridWidth)
-        
         // Container View 2 Height and Width
-        containerView2Height = NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: videoGridHeight)
-        containerView2Width = NSLayoutConstraint(item: containerView2, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: videoGridWidth)
+        containerView2Height = NSLayoutConstraint(item: containerView2, attribute: .Height, relatedBy: .Equal, toItem: containerView1, attribute: .Height, multiplier: 1, constant: 0)
+        containerView2Width = NSLayoutConstraint(item: containerView2, attribute: .Width, relatedBy: .Equal, toItem: containerView1, attribute: .Width, multiplier: 1, constant: 0)
         
         // Container View 3 Height and Width
-        containerView3Height = NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: videoGridHeight)
-        containerView3Width = NSLayoutConstraint(item: containerView3, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: videoGridWidth)
+        containerView3Height = NSLayoutConstraint(item: containerView3, attribute: .Height, relatedBy: .Equal, toItem: containerView1, attribute: .Height, multiplier: 1, constant: 0)
+        containerView3Width = NSLayoutConstraint(item: containerView3, attribute: .Width, relatedBy: .Equal, toItem: containerView1, attribute: .Width, multiplier: 1, constant: 0)
         
         // Container View 4 Height and Width
-        containerView4Height = NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: videoGridHeight)
-        containerView4Width = NSLayoutConstraint(item: containerView4, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: videoGridWidth)
+        containerView4Height = NSLayoutConstraint(item: containerView4, attribute: .Height, relatedBy: .Equal, toItem: containerView1, attribute: .Height, multiplier: 1, constant: 0)
+        containerView4Width = NSLayoutConstraint(item: containerView4, attribute: .Width, relatedBy: .Equal, toItem: containerView1, attribute: .Width, multiplier: 1, constant: 0)
         
-        view.addConstraint(containerView1Height)
-        view.addConstraint(containerView1Width)
         view.addConstraint(containerView2Height)
         view.addConstraint(containerView2Width)
         view.addConstraint(containerView3Height)
@@ -177,8 +133,6 @@ class MainViewController: UIViewController {
     }
     
     private func removeWidthAndHeight() {
-        view.removeConstraint(containerView1Height)
-        view.removeConstraint(containerView1Width)
         view.removeConstraint(containerView2Height)
         view.removeConstraint(containerView2Width)
         view.removeConstraint(containerView3Height)
@@ -190,6 +144,11 @@ class MainViewController: UIViewController {
     private func updateWidthAndHeight() {
         removeWidthAndHeight()
         addWidthAndHeight()
+    }
+    
+    private func appendSharedConstraints() {
+        constraints.append(NSLayoutConstraint(item: containerView1, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: 0))
+        constraints.append(NSLayoutConstraint(item: containerView1, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1, constant: 0))
     }
     
     private func addAllConstraints(constraint: [NSLayoutConstraint]) {
